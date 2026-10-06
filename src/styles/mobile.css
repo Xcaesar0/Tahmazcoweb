@@ -1,0 +1,20 @@
+.mobile { background: var(--bg-2); border-bottom: 1px solid var(--line); overflow: hidden; }
+.mobile__head { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; }
+.mobile__head > * { min-width: 0; }
+.phones { margin-top: clamp(48px, 7vw, 96px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 4vw, 64px); align-items: start; max-width: 1000px; margin-inline: auto; }
+.phone { min-width: 0; }
+.phone:nth-child(2) { margin-top: clamp(32px, 6vw, 96px); }
+.phone:nth-child(3) { margin-top: clamp(0px, 3vw, 48px); }
+.phone__body { border: 1px solid var(--line-strong); border-radius: 26px; padding: 8px; background: #050506; }
+.phone__screen { border-radius: 19px; overflow: hidden; aspect-ratio: 390 / 760; background: #000; }
+.phone__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.phone figcaption { margin-top: 14px; font-size: var(--fs-small); line-height: 1.7; color: var(--muted); }
+.phone figcaption .num { color: var(--orange); display: block; direction: rtl; }
+@media (max-width: 860px) { .mobile__head { grid-template-columns: 1fr; gap: 16px; } }
+@media (max-width: 600px) {
+  .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .phone:nth-child(3) { grid-column: 1 / -1; width: calc(50% - 8px); margin-top: 0; }
+  .phone:nth-child(2) { margin-top: 32px; }
+  .phone__body { border-radius: 18px; padding: 5px; }
+  .phone__screen { border-radius: 13px; }
+}

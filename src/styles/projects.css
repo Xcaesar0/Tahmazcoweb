@@ -1,0 +1,22 @@
+.projects { background: var(--bg); border-bottom: 1px solid var(--line); }
+.pgrid { margin-top: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(12px, 1.8vw, 24px); }
+.pcard { position: relative; min-width: 0; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px 28px; border: 1px solid var(--line); background: linear-gradient(160deg, #2b2b30 0%, #131316 55%, #0b0b0d 100%); isolation: isolate; }
+.pcard::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 60% at 10% 100%, var(--glow, rgba(143, 29, 29, 0.55)), transparent 70%); }
+.pcard--a { --glow: rgba(143, 29, 29, 0.6); }
+.pcard--b { --glow: rgba(242, 106, 27, 0.35); }
+.pcard--c { --glow: rgba(150, 150, 160, 0.22); }
+.pcard__n { position: absolute; inset-block-start: 18px; inset-inline-start: 22px; font-family: var(--f-mono); font-weight: 500; line-height: 1.1; font-size: clamp(3rem, 2rem + 4vw, 6rem); color: transparent; -webkit-text-stroke: 1px rgba(243, 239, 232, 0.35); direction: ltr; }
+.pcard h3 { font-size: clamp(1.375rem, 1rem + 1.2vw, 2rem); line-height: 1.5; font-weight: 800; }
+.pcard--lg h3 { font-size: clamp(1.75rem, 1rem + 3vw, 3.5rem); }
+.pcard__meta { display: flex; align-items: center; gap: 12px; margin-top: 8px; color: var(--muted); font-size: 0.8125rem; line-height: 1.6; }
+.pcard__meta::after { content: ''; width: 28px; height: 1px; background: var(--orange); }
+.pcard--lg { grid-column: 1 / -1; min-height: clamp(360px, 42vw, 620px); }
+.pcard--lg::after { content: ''; position: absolute; inset-block-start: -8px; inset-inline-end: -8px; width: 44px; height: 44px; border-block-start: 3px solid var(--orange); border-inline-end: 3px solid var(--orange); }
+.p2 { grid-column: span 7; } .p3 { grid-column: span 5; }
+.p4 { grid-column: span 5; } .p5 { grid-column: span 4; } .p6 { grid-column: span 3; }
+.p2, .p3 { min-height: 340px; } .p4, .p5, .p6 { min-height: 300px; }
+.projects__note { margin-top: 24px; color: var(--muted); font-size: var(--fs-small); }
+@media (max-width: 860px) {
+  .pcard, .p2, .p3, .p4, .p5, .p6 { grid-column: 1 / -1; min-height: 240px; }
+  .pcard--lg { min-height: 300px; }
+}

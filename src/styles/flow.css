@@ -1,0 +1,19 @@
+.flow { background: var(--bg-2); border-bottom: 1px solid var(--line); overflow: hidden; }
+.flow::before { content: ''; position: absolute; inset-block-start: 0; inset-inline-start: 0; width: 100%; height: 100%; background: radial-gradient(50% 60% at 0% 100%, rgba(143, 29, 29, 0.35), transparent 70%); pointer-events: none; }
+.flow .wrap { position: relative; }
+.steps { margin-top: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: relative; counter-reset: s; }
+.steps::before { content: ''; position: absolute; inset-inline: 0; inset-block-start: 22px; height: 1px; background: var(--line-strong); }
+.step { position: relative; padding-inline-end: 24px; min-width: 0; }
+.step__dot { width: 44px; height: 44px; border: 1px solid var(--orange); background: var(--bg-2); display: grid; place-items: center; color: var(--orange); position: relative; }
+.step:last-child .step__dot { background: var(--orange); color: #111; }
+.step h3 { font-size: 1.375rem; line-height: 1.5; margin-block: 22px 8px; font-weight: 800; }
+.step p { color: var(--muted); font-size: var(--fs-small); line-height: 1.75; }
+.step__eg { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--line-strong); color: var(--text); font-size: var(--fs-small); line-height: 1.7; }
+.flow__note { margin-top: 36px; color: var(--muted); font-size: var(--fs-small); }
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr; }
+  .steps::before { inset-inline: auto; inset-inline-start: 21px; inset-block: 22px; width: 1px; height: auto; }
+  .step { display: grid; grid-template-columns: 44px 1fr; column-gap: 20px; padding-bottom: 32px; padding-inline-end: 0; }
+  .step__dot { grid-row: span 3; }
+  .step h3 { margin-block: 8px 6px; }
+}
