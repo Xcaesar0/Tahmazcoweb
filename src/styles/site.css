@@ -18,3 +18,8 @@
   .shot__fig, .shot__cap, .shot:nth-of-type(even) .shot__fig, .shot:nth-of-type(even) .shot__cap { grid-column: 1; grid-row: auto; }
   .shot__cap { order: -1; }
 }
+
+/* full page */
+.full { background: var(--bg-2); border-bottom: 1px solid var(--line); }
+.full .wrap > div { margin-bottom: clamp(32px, 5vw, 64px); }
+.full__frame img { width: 100%; height: auto; }
