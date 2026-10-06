@@ -15,11 +15,11 @@ npm run preview
 ```
 
 ## Deploy (Netlify)
-Connect the repo; `netlify.toml` already sets build command `npm run build`, publish dir `dist`, Node 20. `public/_headers` gives `/assets/*` and `/img/*` long-term caching. Vite uses `base: './'`, so it works on any path.
+Connect the repo; `netlify.toml` already sets build command `npm run build`, publish dir `dist`, Node 20. `public/_headers` gives `/assets/*` long-term caching. Vite uses `base: './'`, so it works on any path.
 
 ## Structure
 - `index.html`: semantic markup, one `<section>` per story beat
 - `src/styles/*.css`: `base.css` (tokens, type scale) plus one file per section
 - `src/main.js`: fade-in on enter (IntersectionObserver, once, disabled for `prefers-reduced-motion`) and the thin progress bar. Content is visible if JS fails.
-- `public/img/*.webp`: Figma exports (desktop sections 1440px wide, mobile 390px wide, logo)
+- `src/img/*.webp` (hashed into `dist/assets/` at build, so updated exports never hit stale cache): Figma exports (desktop sections 1440px wide, mobile 390px wide, logo)
 - Fonts are self-hosted via `@fontsource` (Alexandria, Cairo, IBM Plex Mono)
